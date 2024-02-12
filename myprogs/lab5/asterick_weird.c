@@ -5,21 +5,18 @@ int main(int argc, char const *argv[])
 	printf("Enter a decision (Number of rows): ");
 	scanf("%d", &rows_max);
 
-	for (int i = 1; i < 2*rows_max; ++i)
+	for (int i = 1; i <= 2 * rows_max; ++i)
 	{
-		printf("*");
+		(i == 2 * rows_max) ? printf("\n") : printf("*");
 	}
-
-	printf("\n");
 
 	for (int row = 2; row <= rows_max; ++row)
 	{
-		for (int space_before = 1; space_before < row; ++space_before)
+		for (int space_before = 1; space_before <= row; ++space_before)
 		{
-			printf(" ");
+			(space_before != row) ? printf(" ") : printf("*");
 		}
-		printf("*");
-		for (int i = 0; i < 2*(rows_max - row) - 1; ++i)
+		for (int i = 0; i < 2 * (rows_max - row) - 1; ++i)
 		{
 			printf(" ");
 		}
