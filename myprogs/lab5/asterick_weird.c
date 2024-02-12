@@ -1,25 +1,31 @@
-#include<stdio.h>
-int main()
+#include <stdio.h>
+int main(int argc, char const *argv[])
 {
-	int number = 0;
-	printf("input rows: ");
-	scanf("%d", &number);
+	int rows_max;
+	printf("Enter a decision (Number of rows): ");
+	scanf("%d", &rows_max);
 
-	for (int i = 1; i<=2*number-1; i++)
+	for (int i = 1; i < 2*rows_max; ++i)
+	{
 		printf("*");
+	}
 
 	printf("\n");
 
-	for (int i = 2; i <= number; i++)
+	for (int row = 2; row <= rows_max; ++row)
 	{
-		for (int j = 1; j < i; ++j)
+		for (int space_before = 1; space_before < row; ++space_before)
+		{
 			printf(" ");
+		}
 		printf("*");
-		for (int j = 1; j <= (2*number - 3 - 2*(i-1)); ++j)
+		for (int i = 0; i < 2*(rows_max - row) - 1; ++i)
+		{
 			printf(" ");
-		if (number != i)
+		}
+		if (rows_max != row)
 			printf("*\n");
-		if (number == i)
+		else
 			printf("\n");
 	}
 	return 0;
