@@ -6,6 +6,9 @@ int main(int argc, char const *argv[])
     scanf("%d", &n);
     for (int row = n; row >= 1; row--)
     {
+        for (int space = 0; space <= n - row; space++)
+            printf("@");
+
         for (int column = 1; column <= row; column++)
             printf("*");
         printf("\n");

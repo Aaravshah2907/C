@@ -7,11 +7,8 @@ int main(int argc, char const *argv[])
     for (int row = 1; row <= n; row++)
     {
         for (int column = 1; column <= row; column++)
-        {
             printf("*");
-        }
         printf("\n");
     }
-
     return 0;
 }
