@@ -8,6 +8,9 @@ int main(int argc, char const *argv[])
     {
         for (int column = 1; column <= row; column++)
             printf("*");
+        for (int column2 = 0; i < n - row; column2++)
+            printf("@");
+
         printf("\n");
     }
     return 0;
