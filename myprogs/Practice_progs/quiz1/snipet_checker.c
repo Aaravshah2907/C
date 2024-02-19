@@ -26,14 +26,13 @@ int main(int argc, char const *argv[])
     n = ++i && --j;
     printf("%d %d %d %d", i, j, m, n);
     */
-    /*
-    Q11
-     int a = 1, b = 1, c = 1, d = 1;
-     a = 1 + (--a || b--);
-     c = 2 + (b && ++d);
-     d = a + d++;
-     printf("%d %d %d %d", a, b, c, d);
-     */
+
+    int a = 1, b = 1, c = 1, d = 1;
+    a = 1 + (--a || b--);
+    c = 2 + (b && ++d);
+    d = a + d++;
+    printf("%d %d %d %d", a, b, c, d);
+
     /*
     int i = (1, 2, 3);
     printf("%d", i);
@@ -58,6 +57,7 @@ int main(int argc, char const *argv[])
      int c = sizeof(++a) + b++;
      printf("%d %d %d", a, b, c);
      */
+
     int x;
     float y;
     x = 5, 7, 9;
