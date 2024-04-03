@@ -4,7 +4,9 @@
 
 int main(int argc, char const *argv[])
 {
-	int st_number;
+	int st_number, dec;
+	printf("Sort Options:\n1. Name Sort\n2. ID Sort\n3. Marks Sort\nSort via: ");
+	scanf("%d", &dec);
 	printf("Enter number of students: ");
 	scanf("%d", &st_number);
 	char ID[st_number][15], Name[st_number][30];
@@ -30,78 +32,37 @@ int main(int argc, char const *argv[])
 		scanf("%d", &Marks[i]);
 	}
 
-	// // For sorting on basis of name
-	// for (int i = 1; i < st_number; ++i)
-	// {
-	// 	for (int j = 0; j < st_number - i; ++j)
-	// 	{
-	// 		if (strcmp(Name[j], Name[j + 1]) > 0)
-	// 		{
-	// 			// Marks Swap
-	// 			int temp = Marks[j];
-	// 			Marks[j] = Marks[j + 1];
-	// 			Marks[j + 1] = temp;
-
-	// 			// Name Swap
-	// 			char n1[30];
-	// 			for (int x = 0; x < 30; ++x)
-	// 				n1[x] = Name[j][x];
-	// 			for (int x = 0; x < 30; ++x)
-	// 				Name[j][x] = Name[j + 1][x];
-	// 			for (int x = 0; x < 30; ++x)
-	// 				Name[j + 1][x] = n1[x];
-
-	// 			// ID swap
-	// 			char id_temp[15];
-	// 			for (int x = 0; x < 15; ++x)
-	// 				id_temp[x] = ID[j][x];
-	// 			for (int x = 0; x < 15; ++x)
-	// 				ID[j][x] = ID[j + 1][x];
-	// 			for (int x = 0; x < 15; ++x)
-	// 				ID[j + 1][x] = id_temp[x];
-	// 		}
-	// 	}
-	// }
-
-	// // For sorting on basis of ID
-	// for (int i = 1; i < st_number; ++i)
-	// {
-	// 	for (int j = 0; j < st_number - i; ++j)
-	// 	{
-	// 		if (strcmp(ID[j], ID[j + 1]) > 0)
-	// 		{
-	// 			// Marks Swap
-	// 			int temp = Marks[j];
-	// 			Marks[j] = Marks[j + 1];
-	// 			Marks[j + 1] = temp;
-
-	// 			// Name Swap
-	// 			char n1[30];
-	// 			for (int x = 0; x < 30; ++x)
-	// 				n1[x] = Name[j][x];
-	// 			for (int x = 0; x < 30; ++x)
-	// 				Name[j][x] = Name[j + 1][x];
-	// 			for (int x = 0; x < 30; ++x)
-	// 				Name[j + 1][x] = n1[x];
-
-	// 			// ID swap
-	// 			char id_temp[15];
-	// 			for (int x = 0; x < 15; ++x)
-	// 				id_temp[x] = ID[j][x];
-	// 			for (int x = 0; x < 15; ++x)
-	// 				ID[j][x] = ID[j + 1][x];
-	// 			for (int x = 0; x < 15; ++x)
-	// 				ID[j + 1][x] = id_temp[x];
-	// 		}
-	// 	}
-	// }
-
-	// For sorting on basis of marks
-	for (int i = 1; i < st_number; ++i)
+	// For sorting on basis of name
+	for (int i = 1; i <= st_number; ++i)
 	{
 		for (int j = 0; j < st_number - i; ++j)
 		{
-			if ((Marks[j] > Marks[j + 1]) > 0)
+			char check1[30], check2[30];
+
+			if (dec == 1)
+			{
+				for (int t = 0; t < 30; t++)
+				{
+					check1[t] = toupper(Name[j][t]);
+					check2[t] = toupper(Name[j + 1][t]);
+				}
+			}
+
+			else if (dec == 2)
+			{
+				for (int t = 0; t < 30; t++)
+				{
+					check1[t] = ID[j][t];
+					check2[t] = ID[j + 1][t];
+				}
+			}
+			else if (dec == 3)
+			{
+				check1[0] = Marks[j];
+				check2[0] = Marks[j + 1];
+			}
+
+			if (strcmp(check1, check2) > 0)
 			{
 				// Marks Swap
 				int temp = Marks[j];
@@ -128,8 +89,6 @@ int main(int argc, char const *argv[])
 			}
 		}
 	}
-
-	printf("Printing it nicely: \n\n\n\n\n\n");
 
 	for (int i = 0; i < st_number; ++i)
 		printf("%d.\n\tID: %s\n\tName: %s\n\tMarks:%d\n", i + 1, ID[i], Name[i], Marks[i]);
